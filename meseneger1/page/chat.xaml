@@ -1,0 +1,83 @@
+﻿<Window x:Class="meseneger1.page.chat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:meseneger1.page"
+        mc:Ignorable="d"
+        Title="chat" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="otprav" Grid.Column="0" ></TextBox>
+            <Button x:Name="otp" Grid.Column="1" Click="otp_Click" ></Button>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <ListView   x:Name="chatt"    SelectionChanged="chatt_SelectionChanged" Height="auto" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid   Rows="15" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+
+                                <TextBlock Text="{Binding date}"   ></TextBlock>
+                                <TextBlock Text="{Binding name}"   ></TextBlock>
+                                <TextBlock Text="{Binding ID_user}"  ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="add" Grid.Row="0" Content="add" ></Button>
+                    <Button x:Name="cheng" Grid.Row="1" Content="chang" Click="cheng_Click" ></Button>
+                    <Button x:Name="leave" Grid.Row="2" Content="leave" Click="leave_Click" ></Button>
+
+                </Grid>
+                <Grid>
+                    <ListView   x:Name="man"    SelectionChanged="man_SelectionChanged" >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid   Rows="3" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                   
+                                    <TextBlock Text="{Binding Name}"   ></TextBlock>
+                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
